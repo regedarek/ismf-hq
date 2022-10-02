@@ -1,0 +1,11 @@
+<div class="text-center mt-2">
+  <h2>ISMF Puzzles</h2>
+  <p class="lead">
+    Learn and have fun with random puzzles!
+    Type ENTER to check the answer!
+  </p>
+
+  <% if Puzzle.all.any? %>
+    <%= render "puzzles/random", puzzle: Puzzle.all.sample %>
+  <% end %>
+</div>
