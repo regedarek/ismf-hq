@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
   root "pages#home"
 
-  resources :puzzles
+  resources :puzzles do
+    post :check, on: :member
+  end
   devise_for :users
 
   get 'pages/home'

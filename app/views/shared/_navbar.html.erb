@@ -3,17 +3,20 @@
       <a class="navbar-brand" href="<%= root_path %>">ISMF HQ</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                <ul class="navbar-nav mb-2 mb-lg-0">
-                  <% if user_signed_in? %>
-                    <%= link_to current_user.email, edit_user_registration_path, class: "nav-item nav-link" %>
-                    <%= link_to "Sign out", destroy_user_session_path, data: { "turbo-method": :delete }, class: "nav-item nav-link" %>
-                  <% else %>
-                    <%= link_to "Sign up", new_user_registration_path, class: "nav-item nav-link" %>
-                    <%= link_to "Login", new_user_session_path, class: "nav-item nav-link" %>
-                  <% end %>
-                </ul>
-            </ul>
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <%= link_to "Puzzles", puzzles_path, class: "nav-item nav-link" %>
+          </ul>
+          <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+              <ul class="navbar-nav mb-2 mb-lg-0">
+                <% if user_signed_in? %>
+                  <%= link_to current_user.email, edit_user_registration_path, class: "nav-item nav-link" %>
+                  <%= link_to "Sign out", destroy_user_session_path, data: { "turbo-method": :delete }, class: "nav-item nav-link" %>
+                <% else %>
+                  <%= link_to "Sign up", new_user_registration_path, class: "nav-item nav-link" %>
+                  <%= link_to "Login", new_user_session_path, class: "nav-item nav-link" %>
+                <% end %>
+              </ul>
+          </ul>
         </div>
     </div>
 </nav>

@@ -1,5 +1,22 @@
-<div id="<%= dom_id puzzle %>">
-  <p><%= image_tag puzzle.thumbnail, size: "200x200" %></p>
-  <p><%= puzzle.en_phrase %></p>
-  <p><%= puzzle.it_phrase %></p>
+
+<div class="container text-center">
+  <div class="row">
+    <div class="col-lg-4 col-sm-0"> </div>
+    <div class="col-lg-4 col-sm-12">
+      <div id="<%= dom_id puzzle %>">
+        <p><%= image_tag puzzle.thumbnail, class: 'img-thumbnail' %></p>
+        <p><%= puzzle.en_phrase %></p>
+
+        <%= simple_form_for(PuzzleGuess.new, url: check_puzzle_path(puzzle)) do |f| %>
+          <%= f.error_notification %>
+          <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+
+          <%= f.input :it_phrase, required: true, label: false, placeholder: "Type in Italian" %>
+
+          <%= f.button :submit, "Check", class: "btn btn-success mt-2" %>
+        <% end %>
+      </div>
+    </div>
+    <div class="col-lg-4 col-sm-0"> </div>
+  </div>
 </div>

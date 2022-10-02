@@ -1,6 +1,6 @@
 class PuzzlesController < ApplicationController
   before_action :set_puzzle, only: %i[ show edit update destroy ]
-  before_action :authenticate_user!, except: %i[index show]
+  before_action :authenticate_user!, except: %i[index show check]
 
   # GET /puzzles or /puzzles.json
   def index
@@ -56,6 +56,18 @@ class PuzzlesController < ApplicationController
     respond_to do |format|
       format.html { redirect_to puzzles_url, notice: "Puzzle was successfully destroyed." }
       format.json { head :no_content }
+    end
+  end
+
+  def check
+    @puzzle = Puzzle.find(params[:id])
+
+    respond_to do |format|
+      if @puzzle.it_phrase == params.dig(:puzzle_guess, :it_phrase)
+        format.html { redirect_to root_path, notice: "You guessed correctly!" }
+      else
+        format.html { redirect_to root_path, alert: "You guessed incorrectly!" }
+      end
     end
   end
 
