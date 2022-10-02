@@ -1,14 +1,15 @@
-<p style="color: green"><%= notice %></p>
-
 <h1>Puzzles</h1>
 
-<div id="puzzles">
+<div class="row align-items-start">
+  <%= link_to "New puzzle", new_puzzle_path %>
+</div>
+
+<div id="puzzles" class="text-center row align-items-center">
   <% @puzzles.each do |puzzle| %>
-    <%= render puzzle %>
-    <p>
-      <%= link_to "Show this puzzle", puzzle %>
-    </p>
+    <div class="col" %>
+      <%= render puzzle %>
+    </div>
   <% end %>
 </div>
 
-<%= link_to "New puzzle", new_puzzle_path %>
+

@@ -20,6 +20,8 @@
 class Puzzle < ApplicationRecord
   belongs_to :user
 
+  validates :en_phrase, :it_phrase, :user_id, :thumbnail, presence: true
+
   has_one_attached :thumbnail
   has_rich_text :body
 end
