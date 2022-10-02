@@ -1,6 +1,6 @@
 <figure class="attachment attachment--<%= blob.representable? ? "preview" : "file" %> attachment--<%= blob.filename.extension %>">
   <% if blob.representable? %>
-    <%= image_tag blob.url, size: '200x200' %>
+    <%= image_tag blob.url, size: '50x100' %>
   <% end %>
 
   <figcaption class="attachment__caption">
