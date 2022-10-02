@@ -63,7 +63,7 @@ class PuzzlesController < ApplicationController
     @puzzle = Puzzle.find(params[:id])
 
     respond_to do |format|
-      if @puzzle.it_phrase == params.dig(:puzzle_guess, :it_phrase)
+      if @puzzle.it_phrase.downcase == params.dig(:puzzle_guess, :it_phrase)&.downcase
         format.html { redirect_to root_path, notice: "You guessed correctly!" }
       else
         format.html { redirect_to root_path, alert: "You guessed incorrectly!" }
