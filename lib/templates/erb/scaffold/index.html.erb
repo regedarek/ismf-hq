@@ -1,14 +1,42 @@
-<p style="color: green"><%%= notice %></p>
-
 <h1><%= human_name.pluralize %></h1>
 
-<div id="<%= plural_table_name %>">
-  <%% @<%= plural_table_name %>.each do |<%= singular_table_name %>| %>
-    <%%= render <%= singular_table_name %> %>
-    <p>
-      <%%= link_to "Show this <%= human_name.downcase %>", <%= model_resource_name(singular_table_name) %> %>
-    </p>
-  <%% end %>
-</div>
+<ul class="nav justify-content-end">
+  <li class="nav-item">
+    <%%= link_to "New <%= human_name.downcase %>", <%= new_helper(type: :path) %>, class: 'nav-link' %>
+  </li>
+</ul>
 
-<%%= link_to "New <%= human_name.downcase %>", <%= new_helper(type: :path) %> %>
+<div id="<%= plural_table_name %>">
+  <table class="table align-middle mb-0 bg-white">
+    <thead class="bg-light">
+            <tr>
+        <% attributes.reject(&:password_digest?).each do |attribute| -%>
+      <th><%%= <%= singular_table_name.classify.constantize %>.human_attribute_name(:<%= attribute.singular_name %>) %></th>
+        <% end -%>
+      <th></th>
+            </tr>
+    </thead>
+    </tbody>
+ <%% @<%= plural_table_name %>.each do |<%= singular_table_name %>| %>
+              <tr>
+                <% attributes.reject(&:password_digest?).each do |attribute| -%>
+  <td><%%= <%= singular_table_name %>.<%= attribute.column_name %> %></td>
+                <% end -%>
+  <td>
+                  <div align='right'>
+                    <%%= link_to <%= model_resource_name %>, class: 'btn btn-link btn-sm btn-rounded' do %>
+                      Show
+                    <%% end %>
+                    <%%= link_to edit_<%= singular_route_name %>_path(<%= singular_table_name %>), class: 'btn btn-link btn-sm btn-rounded' do %>
+                      Edit
+                    <%% end %>
+                    <%%= link_to <%= model_resource_name %>, data: { 'turbo-method': 'delete', confirm: I18n.t('.are_you_sure') }, class: 'btn btn-link btn-sm btn-rounded text-danger' do %>
+                      Destroy
+                    <%% end %>
+                  </div>
+                </td>
+              </tr>
+            <%% end %>
+    </tbody>
+  </table>
+</div>

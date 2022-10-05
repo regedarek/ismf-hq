@@ -1,0 +1,38 @@
+<h1>Questions</h1>
+
+<ul class="nav justify-content-end">
+  <li class="nav-item">
+    <%= link_to "New question", new_question_path, class: 'nav-link' %>
+  </li>
+</ul>
+
+<div id="questions">
+  <table class="table align-middle mb-0 bg-white">
+    <thead class="bg-light">
+            <tr>
+              <th><%= Question.human_attribute_name(:name) %></th>
+              <th></th>
+            </tr>
+    </thead>
+    </tbody>
+ <% @questions.each do |question| %>
+              <tr>
+                  <td><%= question.name %></td>
+                  <td>
+                  <div align='right'>
+                    <%= link_to question, class: 'btn btn-link btn-sm btn-rounded' do %>
+                      Show
+                    <% end %>
+                    <%= link_to edit_question_path(question), class: 'btn btn-link btn-sm btn-rounded' do %>
+                      Edit
+                    <% end %>
+                    <%= link_to question, data: { 'turbo-method': 'delete', confirm: I18n.t('.are_you_sure') }, class: 'btn text-danger btn-link btn-sm btn-rounded' do %>
+                      Destroy
+                    <% end %>
+                  </div>
+                </td>
+              </tr>
+            <% end %>
+    </tbody>
+  </table>
+</div>

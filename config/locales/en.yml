@@ -1,4 +1,5 @@
 en:
+  back: Back
   activerecord:
     models:
       puzzle: Puzzle

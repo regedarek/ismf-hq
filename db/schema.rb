@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_10_01_174200) do
+ActiveRecord::Schema[7.0].define(version: 2022_10_05_092332) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -59,6 +59,16 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_01_174200) do
     t.string "en_phrase"
     t.string "it_phrase"
     t.index ["user_id"], name: "index_puzzles_on_user_id"
+  end
+
+  create_table "questions", force: :cascade do |t|
+    t.integer "answer_type", null: false
+    t.string "name", null: false
+    t.integer "position"
+    t.integer "question_source_type", null: false
+    t.string "question_source_value"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|
