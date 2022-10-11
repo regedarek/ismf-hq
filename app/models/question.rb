@@ -18,4 +18,12 @@ class Question < ApplicationRecord
   enum question_source_type: { no_text: 0, text: 1 }
 
   validates :answer_type, :name, :slide, presence: true
+
+  has_many :answers, dependent: :destroy
+
+  accepts_nested_attributes_for :answers, allow_destroy: true, reject_if: proc { |attr| attr['name'].blank? }
+
+  def slide_as_thumbnail
+    slide.variant(resize_to_limit: [300, 300]).processed
+  end
 end

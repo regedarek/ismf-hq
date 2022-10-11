@@ -1,6 +1,7 @@
 <%= simple_form_for(@question) do |f| %>
   <%= f.error_notification %>
   <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+  <%= f.error_notification message: f.object.errors['answers.base'].to_sentence if f.object.errors['answers.base'].present? %>
 
   <div class="form-inputs">
     <div class='row'>
@@ -12,7 +13,25 @@
       </div>
     </div>
     <div class='mt-3'>
-      <%= f.input :slide, as: :file, class: 'file form-control' %>
+      <%= f.input :slide, as: :file, label: false, class: 'file form-control' %>
+    </div>
+    <div class='row'>
+      <h3>Answers</h3>
+      <div data-controller="nested-form">
+        <template data-nested-form-target="template">
+          <%= f.fields_for :answers, Answer.new, child_index: 'TEMPLATE_RECORD' do |answer| %>
+            <%= render "answer_fields", form: answer %>
+          <% end %>
+        </template>
+
+        <%= f.fields_for :answers do |answer| %>
+          <%= render "answer_fields", form: answer %>
+        <% end %>
+
+        <div data-nested-form-target="add_answer">
+          <%= link_to 'Add Answer', '#', data: { action: "nested-form#add_association" } %>
+        </div>
+      </div>
     </div>
   </div>
 
