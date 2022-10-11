@@ -52,7 +52,7 @@ RUN volta install node@${NODE_VERSION} yarn
 
 FROM base as build_deps
 
-ARG BUILD_PACKAGES="git build-essential libpq-dev wget vim curl gzip xz-utils libsqlite3-dev"
+ARG BUILD_PACKAGES="git build-essential libpq-dev wget vim curl gzip xz-utils libsqlite3-dev libglib2.0-dev"
 ENV BUILD_PACKAGES ${BUILD_PACKAGES}
 
 RUN --mount=type=cache,id=dev-apt-cache,sharing=locked,target=/var/cache/apt \
