@@ -1,22 +1,24 @@
 <div id="<%= dom_id question %>">
-  <p>
-    <strong>Name:</strong>
-    <%= question.name %>
-  </p>
+  <div class='row'>
+    <div class='col'>
+    <h4><%= question.name %></h4>
 
-  <p>
-    <%= image_tag question.slide_as_thumbnail %>
-  </p>
+    <p>
+      <%= image_tag question.slide_as_thumbnail %>
+    </p>
+    </div>
+    <div class='col'>
+      <h4>Answers</h4>
 
-  <h3>Answers</h3>
-
-  <ul class="list-group">
-    <% question.answers.each do |answer| %>
-      <% if answer.correct? %>
-        <li class="list-group-item list-group-item-success"><%= answer.name %></li>
-      <% else %>
-        <li class="list-group-item list-group-item-primary"><%= answer.name %></li>
-      <% end %>
-    <% end %>
-  </ul>
+      <ul class="list-group">
+        <% question.answers.each do |answer| %>
+          <% if answer.correct? %>
+            <li class="list-group-item list-group-item-success"><%= answer.name %></li>
+          <% else %>
+            <li class="list-group-item list-group-item-danger"><%= answer.name %></li>
+          <% end %>
+        <% end %>
+      </ul>
+    </div>
+  </div>
 </div>
