@@ -8,6 +8,7 @@
 #  first_name             :string
 #  last_name              :string
 #  remember_created_at    :datetime
+#  remember_token         :string(20)
 #  reset_password_sent_at :datetime
 #  reset_password_token   :string
 #  role                   :integer          default("regular"), not null
@@ -20,10 +21,10 @@
 #  index_users_on_reset_password_token  (reset_password_token) UNIQUE
 #
 class User < ApplicationRecord
-  devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable
+  devise :magic_link_authenticatable, :registerable,
+         :rememberable, :validatable
 
   enum role: [:regular, :admin]
-
+  
   has_many :puzzles, dependent: :destroy
 end

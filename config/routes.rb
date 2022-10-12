@@ -1,15 +1,14 @@
 Rails.application.routes.draw do
-  resources :questions
   root "pages#home"
 
-  resources :puzzles do
-    post :check, on: :member
+  devise_for :users,
+    controllers: { sessions: "devise/passwordless/sessions" }
+
+  devise_scope :user do
+    get "/users/magic_link",
+      to: "devise/passwordless/magic_links#show",
+      as: "users_magic_link"
   end
-  devise_for :users
 
-  get 'pages/home'
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
-
-  # Defines the root path route ("/")
-  # root "articles#index"
+  resources :questions
 end

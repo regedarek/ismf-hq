@@ -65,6 +65,16 @@ Rails.application.configure do
   # config.active_job.queue_name_prefix = "ismf_hq_production"
 
   config.action_mailer.perform_caching = false
+  config.action_mailer.delivery_method = :mailgun
+  config.action_mailer.mailgun_settings = {
+    api_key: Rails.application.credentials.dig(:mailgun, :api_key),
+    domain: 'kw.krakow.pl'
+  }
+  Rails.application.routes.default_url_options[:url] = "https://ismf-hq.fly.dev/"
+  config.action_mailer.default_url_options = { :host => 'ismf-hq.fly.dev' }
+  config.action_mailer.default_options = {
+    from: "ISMF HQ <dariusz.finster@gmail.com>"
+  }
 
   # Ignore bad email addresses and do not raise email delivery errors.
   # Set this to true and configure the email server for immediate delivery to raise delivery errors.

@@ -67,12 +67,14 @@ group :development do
   # gem "spring"
 end
 
+gem 'mailgun-ruby', '~> 1.2'
 
 gem "devise", "~> 4.8"
-gem "simple_form", "~> 5.1"
-gem "annotate", "~> 3.2"
-
+gem "devise-passwordless"
 gem "devise-i18n", "~> 1.10"
 gem "devise-bootstrap5", "~> 0.1.3"
+
+gem "simple_form", "~> 5.1"
+gem "annotate", "~> 3.2"
 
 gem 'activestorage-openstack', github: 'chaadow/activestorage-openstack'
