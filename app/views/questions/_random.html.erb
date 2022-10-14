@@ -1,0 +1,20 @@
+<div id="<%= dom_id question %>" data-controller="random">
+  <div class='row'>
+    <h4><%= question.name %></h4>
+    <p>
+      <% if question.slide.image? %>
+        <%= image_tag question.slide_as_thumbnail %>
+      <% end %>
+      <% if question.slide.video? %>
+        <%= video_tag question.slide.url, controls: true, width: 350, height: 350 %>
+      <% end %>
+    </p>
+    </div>
+      <div class="d-grid gap-2 col-md-4 mx-auto mb-2">
+        <% question.answers.each do |answer| %>
+          <button class="btn btn-primary"><%= answer.name %></button>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</div>

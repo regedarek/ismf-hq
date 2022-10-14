@@ -10,5 +10,8 @@ application.register("flash", FlashController)
 import HelloController from "./hello_controller"
 application.register("hello", HelloController)
 
+import RandomController from "./random_controller"
+application.register("random", RandomController)
+
 import NestedFormController from "./nested_form_controller"
 application.register("nested-form", NestedFormController)
