@@ -21,6 +21,9 @@ class Question < ApplicationRecord
 
   has_many :answers, dependent: :destroy
 
+  has_rich_text :introduction
+  has_rich_text :remarks
+
   accepts_nested_attributes_for :answers, allow_destroy: true, reject_if: proc { |attr| attr['name'].blank? }
 
   def slide_as_thumbnail

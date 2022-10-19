@@ -1,10 +1,17 @@
 <div class='nested-fields'>
   <div class='form-group'>
-    <%= form.hidden_field :_destroy %>
-    <%= form.text_field :name, placeholder: 'Name', class: 'form-control' %>
-    <%= form.check_box :correct %>
-    <small>
-      <%= link_to 'Remove', '#', data: { action: "click->nested-form#remove_association" } %>
-    </small>
+    <div class="row">
+      <div class="col-8">
+        <%= form.hidden_field :_destroy %>
+        <%= form.text_field :name, placeholder: 'Name', class: 'form-control' %>
+        <%= form.check_box :correct %>
+        <%= form.label :correct %>
+      </div>
+      <div class="col-4">
+        <small>
+          <%= link_to 'Remove', '#', data: { action: "click->nested-form#remove_association" } %>
+        </small>
+      </div>
+    </div>
   </div>
 </div>
