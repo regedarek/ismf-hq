@@ -73,7 +73,7 @@ Rails.application.configure do
   Rails.application.routes.default_url_options[:url] = "https://ismf-hq.fly.dev/"
   config.action_mailer.default_url_options = { :host => 'ismf-hq.fly.dev' }
   config.action_mailer.default_options = {
-    from: "ISMF HQ <dariusz.finster@gmail.com>"
+    from: "ISMF HQ <no-reply@ismf-ski.org>"
   }
 
   # Ignore bad email addresses and do not raise email delivery errors.

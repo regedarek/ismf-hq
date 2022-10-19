@@ -48,7 +48,7 @@ Rails.application.configure do
   Rails.application.routes.default_url_options[:url] = 'http://localhost:3000'
   config.action_mailer.default_url_options = { :host => 'localhost', port: 3000 }
   config.action_mailer.default_options = {
-    from: "ISMF HQ <dariusz.finster@gmail.com>"
+    from: "ISMF HQ <no-reply@ismf-ski.org>"
   }
 
   # Print deprecation notices to the Rails logger.
