@@ -19,10 +19,13 @@ export default class extends Controller {
           this.answerTargets.forEach(element => { 
             element.classList.add('btn-danger')
           })
+
           event.target.classList.remove('btn-danger')
           event.target.classList.add('btn-success')
+
           this.nextTarget.classList.remove('d-none')
           this.failureTarget.classList.add('d-none')
+
           confetti({
             particleCount: 70,
             angle: 120,
@@ -35,6 +38,7 @@ export default class extends Controller {
               element.classList.add('btn-danger')
             }
           })
+
           this.nextTarget.classList.add('d-none')
           this.failureTarget.classList.remove('d-none')
         }

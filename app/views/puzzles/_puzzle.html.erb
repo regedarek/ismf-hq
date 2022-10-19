@@ -1,9 +1,0 @@
-<div id="<%= dom_id puzzle %>">
-  <figure class="figure">
-    <%= link_to puzzle_path(puzzle.id) do %>
-      <%= image_tag puzzle.thumbnail, class: "figure-img img-thumbnail rounded", size: "100x100" %>
-    <% end %>
-    <figcaption class="figure-caption text-center text-bg-success"><%= puzzle.en_phrase %></figcaption>
-    <figcaption class="figure-caption text-center text-bg-info"><%= puzzle.it_phrase %></figcaption>
-</figure>
-</div>

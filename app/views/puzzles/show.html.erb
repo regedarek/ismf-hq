@@ -1,9 +1,0 @@
-<%= render @puzzle %>
-
-<div>
-  <%= link_to "Edit this puzzle", edit_puzzle_path(@puzzle) %>
-  |
-  <%= link_to "Destroy this puzzle", @puzzle, data: { "turbo-method": :delete, turbo_confirm: "Are you ready?" } %>
-  |
-  <%= link_to "Back to puzzles", puzzles_path %>
-</div>
