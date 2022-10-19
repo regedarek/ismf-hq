@@ -15,4 +15,12 @@
       <% end %>
     </div>
   </div>
+  <div class='row'>
+    <div data-random-target="next" class="d-grid gap-2 col-md-4 mx-auto mb-2">
+      <%= link_to "Next question...", root_url, data: { turbo: "false" } %>
+    </div>
+    <div data-random-target="failure" class="d-grid gap-2 col-md-4 mx-auto mb-2 d-none">
+      <span>Try again!</span>
+    </div>
+  </div>
 </div>
