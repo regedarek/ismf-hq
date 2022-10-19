@@ -11,4 +11,7 @@ Rails.application.routes.draw do
   end
 
   resources :questions
+  resources :answers, only: [] do
+    get :check, on: :member
+  end
 end

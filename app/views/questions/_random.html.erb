@@ -9,12 +9,10 @@
         <%= video_tag question.slide.url, controls: true, width: 350, height: 350 %>
       <% end %>
     </p>
-    </div>
-      <div class="d-grid gap-2 col-md-4 mx-auto mb-2">
-        <% question.answers.each do |answer| %>
-          <button class="btn btn-primary"><%= answer.name %></button>
-        <% end %>
-      </ul>
+    <div data-random-target="answers" class="d-grid gap-2 col-md-4 mx-auto mb-2">
+      <% question.answers.each do |answer| %>
+        <button data-random-target="answer" data-action="click->random#check" data-random-answer-url-param="<%= check_answer_url(answer) %>" data-random-answer-id-param="<%= answer.id %>" class="btn btn-primary"><%= answer.name %></button>
+      <% end %>
     </div>
   </div>
 </div>
