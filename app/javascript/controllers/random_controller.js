@@ -6,9 +6,8 @@ export default class extends Controller {
 
   connect() {
     this.nextTarget.classList.add('d-none')
-    this.remarksTarget.classList.add('d-none')
 
-    this.element.querySelectorAll('a').forEach(function(link) {
+    this.remarksTarget.querySelectorAll('a').forEach(function(link) {
       if (link.host !== window.location.host) {
         link.target = "_blank"
         link.classList.add('link-info')
