@@ -29,11 +29,15 @@
       </div>
     </div>
     <div class='col'>
-      <div data-random-target="remarks" class="card text-white bg-success mb-3">
-        <div class="card-header text-white">Remarks</div>
-        <div class="card-body text-white">
-          <p class="card-text"><%= question.remarks %></p>
-        </div>
+      <div data-random-target="remarks">
+        <% if question.remarks.present? %>
+          <div class="card text-white bg-success mb-3">
+            <div class="card-header text-white">Remarks</div>
+            <div class="card-body text-white">
+              <p class="card-text"><%= question.remarks %></p>
+            </div>
+          </div>
+        <% end %>
       </div>
     </div>
   </div>
