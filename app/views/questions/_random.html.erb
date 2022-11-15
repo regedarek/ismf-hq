@@ -1,22 +1,44 @@
 <div id="<%= dom_id question %>" data-controller="random">
   <div class='row'>
-    <h4><%= question.name %></h4>
-    <p>
-      <% if question.slide.image? %>
-        <%= image_tag question.slide_as_thumbnail %>
+    <div class='col'>
+      <% if question.introduction.present? %>
+        <div class="card border-secondary mb-3">
+          <div class="card-header">Introduction</div>
+          <div class="card-body text-secondary">
+            <p class="card-text"><%= question.introduction %></p>
+          </div>
+        </div>
       <% end %>
-      <% if question.slide.video? %>
-        <%= video_tag question.slide.url, controls: true, width: 350, height: 350 %>
-      <% end %>
-    </p>
-    <div data-random-target="answers" class="d-grid gap-2 mx-auto mb-2">
-      <% question.answers.each do |answer| %>
-        <button data-random-target="answer" data-action="click->random#check" data-random-answer-url-param="<%= check_answer_url(answer) %>" data-random-answer-id-param="<%= answer.id %>" class="btn btn-primary"><%= answer.name %></button>
-      <% end %>
+    </div>
+    <div class='col-md-4'>
+      <h4><%= question.name %></h4>
+      <p>
+        <% if question.slide.image? %>
+          <%= image_tag question.slide_as_thumbnail %>
+        <% end %>
+        <% if question.slide.video? %>
+          <div class="embed-responsive embed-responsive-1by1">
+          <%= video_tag question.slide.url, controls: true, width: 350, height: 350, class: "embed-responsive-item" %>
+          </div>
+        <% end %>
+      </p>
+      <div data-random-target="answers" class="d-grid gap-2 mx-auto mb-2">
+        <% question.answers.each do |answer| %>
+          <button data-random-target="answer" data-action="click->random#check" data-random-answer-url-param="<%= check_answer_url(answer) %>" data-random-answer-id-param="<%= answer.id %>" class="btn btn-primary"><%= answer.name %></button>
+        <% end %>
+      </div>
+    </div>
+    <div class='col'>
+      <div data-random-target="remarks" class="card text-white bg-success mb-3">
+        <div class="card-header text-white">Remarks</div>
+        <div class="card-body text-white">
+          <p class="card-text"><%= question.remarks %></p>
+        </div>
+      </div>
     </div>
   </div>
   <div class='row'>
-    <div data-random-target="next" class="d-grid gap-2 mx-auto mb-2">
+    <div data-random-target="next" class="d-grid gap-2 col-md-4 mx-auto mb-2">
       <%= link_to "Next question...", root_url, data: { turbo: "false" } %>
     </div>
     <div data-random-target="failure" class="d-grid gap-2 mx-auto mb-2 d-none">

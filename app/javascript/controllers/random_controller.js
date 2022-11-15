@@ -2,10 +2,11 @@ import { Controller } from "@hotwired/stimulus"
 import confetti from "canvas-confetti"
 
 export default class extends Controller {
-  static targets = ['answers', 'answer', 'next', 'failure']
+  static targets = ['answers', 'answer', 'next', 'failure', 'remarks']
 
   connect() {
     this.nextTarget.classList.add('d-none')
+    this.remarksTarget.classList.add('d-none')
   }
 
   check(event) {
@@ -24,6 +25,7 @@ export default class extends Controller {
           event.target.classList.add('btn-success')
 
           this.nextTarget.classList.remove('d-none')
+          this.remarksTarget.classList.remove('d-none')
           this.failureTarget.classList.add('d-none')
 
           confetti({
