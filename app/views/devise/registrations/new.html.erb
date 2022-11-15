@@ -1,4 +1,4 @@
-<div class="row">
+<div class="row mt-3">
   <div class="col-md-6">
     <h2 class="pb-4"><%= t('.sign_up') %></h2>
 
@@ -14,7 +14,21 @@
 	<%= f.submit t('.sign_up'), class: 'btn btn-primary', data: { turbo: false } %>
       </div>
     <% end %>
-
-    <%= render "devise/shared/links" %>
+  </div>
+  <div class="col-md-6">
+    <div class="card text-dark bg-light mb-3 mt-3" >
+      <div class="card-body">
+        <h5 class="card-title">Information</h5>
+        <p class="card-text">
+          If you have an account already then just go to the login page
+          <%= link_to 'here', new_session_path(resource_name) %>.
+          <br/>
+        </p>
+        <p>
+        If you doesn't have an account, then please type your e-mail and you will receive an email with your login link.
+        This way you don't need a password.
+        </p>
+      </div>
+    </div>
   </div>
 </div>
