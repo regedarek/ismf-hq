@@ -17,6 +17,8 @@ Rails.application.routes.draw do
     get :check, on: :member
   end
 
+  get "/calendar", to: "pages#calendar"
+
     get "/cases/:id",
       to: "questions#public",
       as: :public_case
