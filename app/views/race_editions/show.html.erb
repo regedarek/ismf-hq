@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @race_edition %>
+
+<div>
+  <%= link_to "Edit this race edition", edit_race_edition_path(@race_edition) %> |
+  <%= link_to "Back to race editions", race_editions_path %>
+
+  <%= button_to "Destroy this race edition", @race_edition, method: :delete %>
+</div>

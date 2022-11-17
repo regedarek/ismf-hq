@@ -1,5 +1,5 @@
 class QuestionsController < ApplicationController
-  before_action :set_question, only: %i[ show edit update destroy ]
+  before_action :set_question, only: %i[ show edit update destroy public ]
 
   # GET /questions or /questions.json
   def index
@@ -17,6 +17,9 @@ class QuestionsController < ApplicationController
 
   # GET /questions/1/edit
   def edit
+  end
+
+  def public
   end
 
   # POST /questions or /questions.json
@@ -62,11 +65,11 @@ class QuestionsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_question
-      @question = Question.find(params[:id])
+      @question = Question.friendly.find(params[:id])
     end
 
     # Only allow a list of trusted parameters through.
     def question_params
-      params.require(:question).permit(:answer_type, :name, :position, :remarks, :introduction, :question_source_type, :question_source_value, :slide, answers_attributes: [:name, :_destroy, :id, :correct])
+      params.require(:question).permit(:answer_type, :name, :position, :remarks, :race_edition_id, :introduction, :question_source_type, :question_source_value, :slide, answers_attributes: [:name, :_destroy, :id, :correct])
     end
 end

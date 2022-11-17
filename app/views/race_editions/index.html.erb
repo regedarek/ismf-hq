@@ -1,0 +1,44 @@
+<h1>Race editions</h1>
+
+<ul class="nav justify-content-end">
+  <li class="nav-item">
+    <%= link_to "New race edition", new_race_edition_path, class: 'nav-link' %>
+  </li>
+</ul>
+
+<div id="race_editions">
+  <table class="table align-middle mb-0 bg-white">
+    <thead class="bg-light">
+            <tr>
+              <th><%= RaceEdition.human_attribute_name(:name) %></th>
+              <th><%= RaceEdition.human_attribute_name(:slug) %></th>
+              <th><%= RaceEdition.human_attribute_name(:start_date) %></th>
+              <th><%= RaceEdition.human_attribute_name(:end_date) %></th>
+              <th></th>
+            </tr>
+    </thead>
+    </tbody>
+ <% @race_editions.each do |race_edition| %>
+              <tr>
+                  <td><%= race_edition.name %></td>
+                  <td><%= race_edition.slug %></td>
+                  <td><%= race_edition.start_date %></td>
+                  <td><%= race_edition.end_date %></td>
+                  <td>
+                  <div align='right'>
+                    <%= link_to race_edition, class: 'btn btn-link btn-sm btn-rounded' do %>
+                      Show
+                    <% end %>
+                    <%= link_to edit_race_edition_path(race_edition), class: 'btn btn-link btn-sm btn-rounded' do %>
+                      Edit
+                    <% end %>
+                    <%= link_to race_edition, data: { 'turbo-method': 'delete', confirm: I18n.t('.are_you_sure') }, class: 'btn btn-link btn-sm btn-rounded text-danger' do %>
+                      Destroy
+                    <% end %>
+                  </div>
+                </td>
+              </tr>
+            <% end %>
+    </tbody>
+  </table>
+</div>

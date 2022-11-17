@@ -15,3 +15,6 @@ application.register("random", RandomController)
 
 import NestedFormController from "./nested_form_controller"
 application.register("nested-form", NestedFormController)
+
+import Clipboard from 'stimulus-clipboard'
+application.register('clipboard', Clipboard)

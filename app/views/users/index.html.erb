@@ -1,0 +1,44 @@
+<h1>Users</h1>
+
+<ul class="nav justify-content-end">
+  <li class="nav-item">
+    <%= link_to "New user", new_user_path, class: 'nav-link' %>
+  </li>
+</ul>
+
+<div id="users">
+  <table class="table align-middle mb-0 bg-white">
+    <thead class="bg-light">
+            <tr>
+              <th><%= User.human_attribute_name(:first_name) %></th>
+              <th><%= User.human_attribute_name(:last_name) %></th>
+              <th><%= User.human_attribute_name(:email) %></th>
+              <th><%= User.human_attribute_name(:role) %></th>
+              <th></th>
+            </tr>
+    </thead>
+    </tbody>
+ <% @users.each do |user| %>
+              <tr>
+                  <td><%= user.first_name %></td>
+                  <td><%= user.last_name %></td>
+                  <td><%= user.email %></td>
+                  <td><%= user.role %></td>
+                  <td>
+                  <div align='right'>
+                    <%= link_to user, class: 'btn btn-link btn-sm btn-rounded' do %>
+                      Show
+                    <% end %>
+                    <%= link_to edit_user_path(user), class: 'btn btn-link btn-sm btn-rounded' do %>
+                      Edit
+                    <% end %>
+                    <%= link_to user, data: { 'turbo-method': 'delete', confirm: I18n.t('.are_you_sure') }, class: 'btn btn-link btn-sm btn-rounded text-danger' do %>
+                      Destroy
+                    <% end %>
+                  </div>
+                </td>
+              </tr>
+            <% end %>
+    </tbody>
+  </table>
+</div>

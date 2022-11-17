@@ -3,7 +3,10 @@ en:
   activerecord:
     models:
       puzzle: Puzzle
+      question: Question
     attributes:
+      question:
+        race_edition: Race Edition
       puzzle:
         en_phrase: English [Phrase, Word]
         it_phrase: Italian [Phrase, Word]

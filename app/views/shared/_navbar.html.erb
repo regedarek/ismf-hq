@@ -26,6 +26,8 @@
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                       <li><%= link_to "Questions", questions_path, class: "dropdown-item" %></li>
+                      <li><%= link_to "Race Editions", race_editions_path, class: "dropdown-item" %></li>
+                      <li><%= link_to "Users", users_path, class: "dropdown-item" %></li>
                     </ul>
                   </li>
                   <%= link_to current_user.email, edit_user_registration_path, class: "nav-item nav-link" %>

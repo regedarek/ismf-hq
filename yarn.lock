@@ -316,6 +316,11 @@ spark-md5@^3.0.1:
   resolved "https://registry.yarnpkg.com/spark-md5/-/spark-md5-3.0.2.tgz#7952c4a30784347abcee73268e473b9c0167e3fc"
   integrity sha512-wcFzz9cDfbuqe0FZzfi2or1sgyIrsDwmPwfZC4hiNidPdPINjeUwNfv5kldczoEAcjl9Y1L3SM7Uz2PUEQzxQw==
 
+stimulus-clipboard@^3.2.2:
+  version "3.2.2"
+  resolved "https://registry.yarnpkg.com/stimulus-clipboard/-/stimulus-clipboard-3.2.2.tgz#33c695b29ea3be5e3b0f691da0a1304fc0c60297"
+  integrity sha512-J/dCoyxL+hItBQrI6TkiBR+WkRXiSNPJw8hBRZtvdAOL/iXGm88nTOCKoU0T1tFlGcy1ODX0uyjxWgCKvNhFRw==
+
 to-regex-range@^5.0.1:
   version "5.0.1"
   resolved "https://registry.yarnpkg.com/to-regex-range/-/to-regex-range-5.0.1.tgz#1648c44aae7c8d988a326018ed72f5b4dd0392e4"
