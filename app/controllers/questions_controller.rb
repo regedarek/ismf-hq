@@ -6,6 +6,10 @@ class QuestionsController < ApplicationController
     @questions = Question.all
   end
 
+  def latest
+    @questions = Question.order(created_at: :desc)
+  end
+
   # GET /questions/1 or /questions/1.json
   def show
   end

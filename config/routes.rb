@@ -12,7 +12,11 @@ Rails.application.routes.draw do
 
   resources :users
   resources :race_editions
-  resources :questions
+  resources :questions do
+    collection do
+      get :latest
+    end
+  end
   resources :answers, only: [] do
     get :check, on: :member
   end

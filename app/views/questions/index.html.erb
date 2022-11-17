@@ -23,7 +23,7 @@
                 <td>
                   <div align='right'>
                     <div  class='btn btn-link btn-sm btn-rounded' data-controller="clipboard" data-clipboard-success-content="Copied!">
-                      <input type="hidden" value="<%= public_case_url(question) %>" data-clipboard-target="source" />
+                      <input type="hidden" value="<%= Rails.application.routes.default_url_options[:url] %>/cases/<%= question.slug %>" data-clipboard-target="source" />
                       <button type="button" data-action="clipboard#copy" data-clipboard-target="button">Copy Link</button>
                     </div>
                     <%= link_to public_case_path(question), class: 'btn btn-link btn-sm btn-rounded' do %>
