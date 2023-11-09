@@ -78,3 +78,9 @@ gem "simple_form", "~> 5.1"
 gem "annotate", "~> 3.2"
 
 gem 'activestorage-openstack', github: 'chaadow/activestorage-openstack'
+
+gem "dockerfile-rails", ">= 1.5", :group => :development
+
+gem "sentry-ruby", "~> 5.13"
+
+gem "sentry-rails", "~> 5.13"
