@@ -15,7 +15,7 @@ console_command = "/rails/bin/rails console"
 [build]
 
 [deploy]
-  release_command = "bin/rails fly:release"
+  release_command = "./bin/rails db:prepare"
 
 [env]
   PORT = "8080"
